@@ -22,10 +22,7 @@ def create_hash
      array<<hash
   end
 
-#CSV.open("data.csv", "wb") {|csv| create_hash.to_a.each {|elem| csv << elem.key} }
 CSV.open("data.csv", "w",write_headers:true,headers:create_hash.first.keys) do |csv|
-
-    #.select {|father| father["age"] > 35 }
     create_hash.each do |hash|
       csv << hash.values
     end
